@@ -1,0 +1,124 @@
+<h1 mat-dialog-title>{{ data.employee.name }} <span *ngIf="editMode" class="edit">(edit mode)</span></h1>
+<div mat-dialog-content>
+
+	<h3>Personal infromation</h3>
+
+	<div class="dialog-row">
+		<label>Name:</label>
+		<div class="static-information" *ngIf="!editMode">
+			<span>{{ data.employee.name }}</span>
+		</div>
+		<div *ngIf="editMode">
+			<mat-form-field>
+		    <input matInput name="name" [(ngModel)]="data.employee.name" autocomplete="off">
+		  </mat-form-field>
+		</div>
+	</div>
+	<div class="dialog-row">
+		<label>Position:</label>
+		<div class="static-information" *ngIf="!editMode">
+			<span>{{ data.employee.position }}</span>
+		</div>
+		<div *ngIf="editMode">
+			<mat-form-field>
+		    <input matInput name="position" [(ngModel)]="data.employee.position" autocomplete="off">
+		  </mat-form-field>
+		</div>
+	</div>
+	<div class="dialog-row">
+		<label>Salary:</label>
+		<div class="static-information" *ngIf="!editMode">
+			<span>{{ data.employee.salary }}</span>
+		</div>
+		<div *ngIf="editMode">
+			<mat-form-field>
+		    <input matInput name="salary" type="number" [(ngModel)]="data.employee.salary" autocomplete="off">
+		  </mat-form-field>
+		</div>
+	</div>
+
+	<h3>Contact information</h3>
+
+	<div class="dialog-row">
+		<label>Email:</label>
+		<div class="static-information" *ngIf="!editMode">
+			<span>{{ data.employee.email }}</span>
+		</div>
+		<div *ngIf="editMode">
+			<mat-form-field>
+		    <input matInput name="email" type="email" [(ngModel)]="data.employee.email" autocomplete="off">
+		  </mat-form-field>
+		</div>
+	</div>
+	<div class="dialog-row">
+		<label>Phone:</label>
+		<div class="static-information" *ngIf="!editMode">
+			<span>{{ data.employee.phone }}</span>
+		</div>
+		<div *ngIf="editMode">
+			<mat-form-field>
+		    <input matInput name="salary" [(ngModel)]="data.employee.phone" autocomplete="off">
+		  </mat-form-field>
+		</div>
+	</div>
+
+	<h3>Address</h3>
+
+	<div class="dialog-row">
+		<label>Street:</label>
+		<div class="static-information" *ngIf="!editMode">
+			<span>{{ data.employee.street }}</span>
+		</div>
+		<div *ngIf="editMode">
+			<mat-form-field>
+		    <input matInput name="street" [(ngModel)]="data.employee.street" autocomplete="off">
+		  </mat-form-field>
+		</div>
+	</div>
+	<div class="dialog-row">
+		<label>Code:</label>
+		<div class="static-information" *ngIf="!editMode">
+			<span>{{ data.employee.code }}</span>
+		</div>
+		<div *ngIf="editMode">
+			<mat-form-field>
+		    <input matInput name="code" [(ngModel)]="data.employee.code" autocomplete="off">
+		  </mat-form-field>
+		</div>
+	</div>
+	<div class="dialog-row">
+		<label>City:</label>
+		<div class="static-information" *ngIf="!editMode">
+			<span>{{ data.employee.city }}</span>
+		</div>
+		<div *ngIf="editMode">
+			<mat-form-field>
+		    <input matInput name="city" [(ngModel)]="data.employee.city" autocomplete="off">
+		  </mat-form-field>
+		</div>
+	</div>
+	<div class="dialog-row">
+		<label>Country:</label>
+		<div class="static-information" *ngIf="!editMode">
+			<span>{{ data.employee.country }}</span>
+		</div>
+		<div *ngIf="editMode">
+			<mat-form-field>
+		    <input matInput name="country" [(ngModel)]="data.employee.country" autocomplete="off">
+		  </mat-form-field>
+		</div>
+	</div>
+</div>
+<div mat-dialog-actions>
+	<button mat-button *ngIf="!editMode" (click)="editEmployee()" cdkFocusInitial>Edit</button>
+	<button mat-button *ngIf="editMode" (click)="saveEmployee()" cdkFocusInitial>Save</button>
+  <button mat-button (click)="closeDialog()" [mat-dialog-close]="dialogResult" cdkFocusInitial>Close</button>
+  <button mat-button *ngIf="employeeEdited"(click)="discardChanges()">Discard changes</button>
+</div>
+
+<div *ngIf="showMessage" class="snack-bar" [@snackBarSlide]>
+  <span>{{ message }}</span>
+  <div class="confirm-buttons">
+    <button mat-raised-button color="accent" (click)="showMessage = false">Close</button>
+  </div>
+</div>

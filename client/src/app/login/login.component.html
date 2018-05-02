@@ -1,0 +1,27 @@
+<div class="login">
+adsdddddasd
+	<div>
+		<img class="logo" src="/assets/images/logos/solteq-logo.png">
+	</div>
+	<div class="login-form center-xy">
+		<form #form="ngForm" (ngSubmit)="login()" autocomplete="off" novalidate>
+			<h2>Sign In</h2>
+			<mat-form-field>
+				<mat-label>Username</mat-label>
+				<input matInput name="username" [(ngModel)]="user.username" required>
+			</mat-form-field>
+			<mat-form-field>
+				<mat-label>Password</mat-label>
+				<input matInput name="password" type="password" [(ngModel)]="user.password" required>
+			</mat-form-field>
+			<button type="submit" mat-raised-button class="default-btn" (click)="login()">Login</button>
+		</form>
+	</div>	
+</div>
+
+<div *ngIf="loginError" class="snack-bar" [@snackBarSlide]>
+	<span>Incorrect username or password</span>
+	<div class="confirm-buttons">
+			<button mat-raised-button color="accent" (click)="loginError = false">Close</button>
+		</div>
+</div>

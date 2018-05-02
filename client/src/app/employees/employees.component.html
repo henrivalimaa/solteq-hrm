@@ -1,0 +1,124 @@
+<div class="employees center-x">
+  <mat-tab-group>
+    <mat-tab label="Employees">
+      <div *ngIf="employees" class="employee-statistics">
+        <h3>Avg. salary spent: {{ averageSalary }} eur.</h3>
+        <button mat-raised-button color="accent" (click)="exportEmployeeData()">Export .CSV file</button>
+      </div>
+      <div>
+        <div>
+          <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" autocomplete="off" placeholder="Search">
+          </mat-form-field>
+        </div>
+
+        <mat-table #table [dataSource]="dataSource" matSort>
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+            <mat-cell *matCellDef="let employee" (click)="previewDetails(employee)">
+              <div>{{ employee.name }}</div>
+            </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="position">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Position </mat-header-cell>
+            <mat-cell *matCellDef="let employee" (click)="previewDetails(employee)">
+              <div>{{ employee.position }}</div>
+            </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="salary">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Salary </mat-header-cell>
+            <mat-cell *matCellDef="let employee" (click)="previewDetails(employee)">
+              <div>{{ employee.salary }}</div>
+            </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="action">
+            <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+            <mat-cell *matCellDef="let employee">
+              <!--<button mat-raised-button color="accent" style="width: 100%;" (click)="previewDetails(employee)">View/edit details</button>-->
+              <mat-form-field style="width: 100px; margin: 0;">
+                <mat-select placeholder="Action" name="action">
+                  <mat-option value="edit" (click)="previewDetails(employee, 'edit')">
+                    <span>Edit</span>
+                    <fa name="pencil" class="fa-icon"></fa>
+                  </mat-option>
+                  <mat-option value="Remove" (click)="confirmRemoval(employee)">
+                    <span>Remove</span>
+                    <fa name="trash" class="fa-icon"></fa>
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+        <mat-paginator #paginator
+                 [pageSize]="10"
+                 [pageSizeOptions]="[5, 10, 20]"
+                 [showFirstLastButtons]="true">
+        </mat-paginator>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Add new employee">
+      <form #form="ngForm" class="employee-form" (ngSubmit)="createEmployee()" novalidate>
+        <h3>Personal information</h3>
+        <mat-form-field>
+          <mat-label>Full name</mat-label>
+          <input matInput name="name" [(ngModel)]="employee.name" autocomplete="off" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Position</mat-label>
+          <input matInput name="position" [(ngModel)]="employee.position" autocomplete="off" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Salary</mat-label>
+          <input matInput name="salary" type="number" [(ngModel)]="employee.salary" autocomplete="off" required>
+        </mat-form-field>
+
+        <h3>Contact information</h3>
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput name="email" type="email" [(ngModel)]="employee.email" autocomplete="off" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Phone</mat-label>
+          <input matInput name="phone" [(ngModel)]="employee.phone" autocomplete="off" required>
+        </mat-form-field>
+
+        <h3>Address</h3>
+        <mat-form-field>
+          <mat-label>Street</mat-label>
+          <input matInput name="street" [(ngModel)]="employee.street" autocomplete="off" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Code</mat-label>
+          <input matInput name="Code" [(ngModel)]="employee.code" autocomplete="off" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>City</mat-label>
+          <input matInput name="city" [(ngModel)]="employee.city" autocomplete="off" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Country</mat-label>
+          <input matInput name="country" [(ngModel)]="employee.country" autocomplete="off" required>
+        </mat-form-field>
+        <button type="submit" mat-raised-button color="accent">Save employee</button>
+      </form>
+    </mat-tab>
+  </mat-tab-group>
+</div>
+
+<div *ngIf="showMessage" class="snack-bar" [@snackBarSlide]>
+  <span>{{ message }}</span>
+  <div class="confirm-buttons">
+    <button *ngIf="showConfirmButtons" mat-raised-button color="accent" class="remove-button" (click)="showMessage = false; removeEmployee()">
+    <fa name="trash"></fa>
+    </button>
+    <button mat-raised-button color="accent" (click)="showMessage = false">Close</button>
+  </div>
+</div>

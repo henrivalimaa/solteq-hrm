@@ -1,0 +1,12 @@
+<div class="top-menu" *ngIf="route != '/login'">
+  <img class="logo" src="/assets/images/logos/solteq-logo.png">
+
+  <mat-menu #appMenu="matMenu">
+    <button mat-menu-item disabled>Settings</button>
+    <button mat-menu-item (click)="logout()">Logout</button>
+  </mat-menu>
+
+  <button [matMenuTriggerFor]="appMenu" class="menu-btn">
+    <fa name="bars" size="3x"></fa>
+  </button>
+</div>

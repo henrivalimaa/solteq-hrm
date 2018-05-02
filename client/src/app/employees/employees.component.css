@@ -1,0 +1,65 @@
+.employee-form .mat-form-field {
+    display: block !important;
+}
+
+.employees {
+	top: 3em;
+	max-width: 50em;
+}
+
+.employee-statistics {
+	color: #fff;
+}
+
+.employee-statistics button {
+	position: absolute;
+	right: 1em;
+	top: 1.5em;
+}
+
+.employee-form h3 {
+	font-weight: 100;
+    color: #fff;
+    padding: 0.5em 0;
+    background-color: #42424217;
+    padding: 0.5em;
+    border-bottom: 1px solid #0000002e;
+}
+
+.employee-form button {
+	min-height: 3em;
+	width: 100%;
+	font-size: 16px;
+}
+
+.remove-btn {
+	padding: 0;
+	min-width: 3em;
+	background-color: red;
+}
+
+.mat-table {
+    background: #42424217;
+    min-height: 40em;
+}
+
+.mat-header-row, .mat-row {
+    border-bottom-color: rgba(255, 255, 255, 0.51);
+}
+
+.fa-icon {
+	position: absolute;
+	right: 1em;
+}
+
+.confirm-buttons {
+	margin-left: 1em;
+	display: inline-block;
+	text-align: center;
+	padding: 1em 0;
+}
+
+.remove-button {
+	min-width: 3em;
+	background-color: #dc5c5cb8;
+}

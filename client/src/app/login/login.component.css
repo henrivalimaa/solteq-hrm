@@ -1,0 +1,41 @@
+.login-form {
+	min-width: 25em;
+}
+
+.login-form .mat-form-field {
+	display: block !important;
+}
+
+.login-form button {
+	width: 100%;
+	height: 3em;
+	font-size: 16px;
+	background-color: #0000002e;
+	color: #fff;
+}
+
+.login {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#F2578F), to(#BA52C8)) !important;
+    background: -webkit-linear-gradient(to right, #F2578F, #BA52C8) !important;
+    background: -moz-linear-gradient(to right, #F2578F, #BA52C8) !important;
+    background: -o-linear-gradient(to right, #F2578F, #BA52C8) !important;
+    background: linear-gradient(to right, #F2578F, #BA52C8) !important;
+}
+
+.login .logo {
+	position: relative;
+	left: 50%;
+	top: 15em;
+	transform: translateX(-50%);
+}
+
+.login h2 {
+	font-weight: 100;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+}

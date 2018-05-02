@@ -1,0 +1,27 @@
+.dialog-row {
+	/*min-height: 4em;*/
+}
+
+.dialog-row div {
+	display: inline-block;
+}
+
+label {
+	display: inline-block;
+    min-width: 5em;
+    color: #b3b3b3;
+}
+
+.static-information {
+	padding: 0.5em 0;
+}
+
+h3 {
+    font-weight: 200;
+    border-bottom: 1px solid #BA52C8;
+    padding-bottom: 0.2em;
+}
+
+.edit {
+	color: #BA52C8;
+}

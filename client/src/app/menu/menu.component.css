@@ -1,0 +1,19 @@
+.menu-btn {
+    top: 1em;
+    right: 1em;
+    position: fixed;
+    background: transparent;
+    border: none;
+    color: #fff;
+    outline: none !important;
+}
+
+.top-menu {
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+.logo {
+	height: 5em;
+}
