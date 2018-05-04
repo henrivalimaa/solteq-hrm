@@ -7,48 +7,51 @@ Application can be build and run with:
 2. Development server setup (Angular CLI, Python)
 
 Clone repository this repository and navigate to the folder with commands:
-```
+
+```console
 git clone https://github.com/henrivalimaa/solteq-hrm.git
 cd solteq-hrm
 ```
 
-### Docker
+## Docker
 
 To build this application with docker you need to install
 1. Docker [https://www.docker.com/community-edition#/download]
 2. Docker Compose [https://docs.docker.com/compose/install/]
 
 After you have installed docker and docker-compose run: 
-```
+
+```console
 docker-compose build
 docker-compose up
 ```
 
-You still need to create a superuser for the application.
+You need to create a user for the application.
 1. Open new terminal window
 2. Navigate to the folder where you cloned this repository
-3. Run `docker run server python server/manage.py createsuperuser` 
+3. Run `docker run server python server/manage.py createsuperuser`
+4. Fill user credentials 
+4. Open your browser and navigate to [localhost:4200].
 
-**After you have successfully created application admin user open your browser and navigate to [http://localhost:4200/login].**
-
-### Development server setup
+## Development server setup
 
 #### Client (Angular)
  
  1. Navigate to `/client` folder
  2. Run commands:
- ```
+
+ ```console
  npm install
  ng serve --host 0.0.0.0
  ```
-After npm has installed all modules and application is build to the web server open your browser and navigate to [http://localhost:4200/login].
+After npm has installed all modules and application is build to the web server open your browser and navigate to [localhost:4200].
 
 #### API (Django REST Framework)
 
-1. Navigate to `server` folder
+1. Navigate to `/server` folder
 2. Run commands: 
 
-```
+```console
 # Create a virtualenv to isolate our package dependencies locally
 virtualenv env
 source env/bin/activate  # On Windows use `env\Scripts\activate`
@@ -65,4 +68,4 @@ python manage.py createsuperuser
 # Run
 python manage.py runserver
 ```
-After api is up open your browser and navigate to [http://localhost:8100].
+After api is up open your browser and navigate to [localhost:8100].
