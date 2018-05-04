@@ -43,7 +43,7 @@ docker-compose up
 You need to create a user for the application.
 1. Open new terminal window
 2. Navigate to the folder where you cloned this repository
-3. Run `docker run server python server/manage.py createsuperuser`
+3. Run `docker-compose run server python server/manage.py createsuperuser`
 4. Fill user credentials 
 4. Open browser and navigate to [http://localhost:4200/login](http://localhost:4200/login).
 
