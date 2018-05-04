@@ -45,7 +45,7 @@ You need to create a user for the application.
 2. Navigate to the folder where you cloned this repository
 3. Run `docker run server python server/manage.py createsuperuser`
 4. Fill user credentials 
-4. Open browser and navigate to [localhost:4200/login](localhost:4200/login).
+4. Open browser and navigate to [http://localhost:4200/login](http://localhost:4200/login).
 
 ## Development server setup
 
@@ -62,9 +62,9 @@ npm install
 # Build and run web server
 ng serve
 ```
-3. Open browser and navigate to [localhost:4200/login](localhost:4200/login)
+3. Open browser and navigate to [http://localhost:4200/login](http://localhost:4200/login)
 
-**!**If nothing happens on command `ng serve` run `npm install -g @angular/cli`
+If nothing happens on command `ng serve` run `npm install -g @angular/cli`
 
 ### API (Django REST Framework)
 
@@ -89,4 +89,4 @@ python manage.py createsuperuser
 # Run
 python manage.py runserver
 ```
-4. API is browsable at URL: [localhost:8000](localhost:8000).
+4. API is browsable at [https://localhost:8000](http://localhost:8000).
