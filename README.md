@@ -1,17 +1,26 @@
-# Solteq HRM
+# `Solteq HRM`
+
+## Prerequisites
+
+Clone repository this repository and navigate to the folder with commands:
+
+```console
+# Clone repository
+git clone https://github.com/henrivalimaa/solteq-hrm.git
+
+# Navigate to project folder
+cd solteq-hrm
+```
+#### Dependecies:
+1. **You must have `Node.js (nodejs)` and its `package manager (npm)` installed. You can get them from here [here](https://nodejs.org/en/).**
+2. **You must have installed `python`, `pip` and `virtualenv`.** 
+
 
 ## Installation
 
 Application can be build and run with:
 1. Docker (build docker image)
-2. Development server setup (Angular CLI, Python)
-
-Clone repository this repository and navigate to the folder with commands:
-
-```console
-git clone https://github.com/henrivalimaa/solteq-hrm.git
-cd solteq-hrm
-```
+2. Development server setup
 
 ## Docker
 
@@ -36,7 +45,10 @@ You need to create a user for the application.
 ## Development server setup
 
 #### Client (Angular)
+
+**You need to have installed latest nodejs and npm**
  
+ Build and run:
  1. Navigate to `/client` folder
  2. Run commands:
 
@@ -48,6 +60,10 @@ After npm has installed all modules and application is build to the web server o
 
 #### API (Django REST Framework)
 
+**You need to have installed python, pip and virtualenv**
+
+Setup, build, and run:
+To run API 
 1. Navigate to `/server` folder
 2. Run commands: 
 
