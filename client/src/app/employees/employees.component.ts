@@ -44,11 +44,16 @@ export class EmployeesComponent implements OnInit {
   ngOnInit() {
     this.employeeService.getEmployees().subscribe(
         response => {
-          this.employees = response;
-          this.averageSalary = this.calculateAverageSalary(response);
-          this.dataSource = new MatTableDataSource(this.employees);
-          this.dataSource.sort = this.sort;
-          this.dataSource.paginator = this.paginator;
+          if (response.status) {
+            this.displayMessage('Could not get employees', false);
+          }
+          else {
+            this.employees = response;
+            this.averageSalary = this.calculateAverageSalary(response);
+            this.dataSource = new MatTableDataSource(this.employees);
+            this.dataSource.sort = this.sort;
+            this.dataSource.paginator = this.paginator;
+          }
         }
     );
   }

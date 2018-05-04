@@ -1,6 +1,6 @@
 # Solteq HRM
 
-This is an awesome description about this project **TODO**
+This is an awesome description about this project...
 
 ## Getting started
 
@@ -27,8 +27,8 @@ Application can be build and run with:
 ## Docker setup
 
 To build this application with docker you need to install
-1. Docker [https://www.docker.com/community-edition#/download]
-2. Docker Compose [https://docs.docker.com/compose/install/]
+1. [Docker](https://www.docker.com/community-edition#/download)
+2. [Docker Compose](https://docs.docker.com/compose/install/)
 
 After you have installed docker and docker-compose run: 
 
@@ -63,6 +63,8 @@ npm install
 ng serve
 ```
 3. Open browser and navigate to [localhost:4200/login](localhost:4200/login)
+
+**!**If nothing happens on command `ng serve` run `npm install -g @angular/cli`
 
 ### API (Django REST Framework)
 
