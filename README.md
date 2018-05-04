@@ -1,8 +1,14 @@
-# `Solteq HRM`
+# Solteq HRM
 
-## Prerequisites
+## Getting started
 
-Clone repository:
+### Prerequisites
+
+1. You need to have `git` installed. You can get git from [here](https://git-scm.com/downloads).
+2. You must have `Node.js (nodejs)` and its `package manager (npm)` installed. You can get them from here [here](https://nodejs.org/en/).
+3. You must have `python`, `pip` and `virtualenv` installed.
+
+Clone the `solteq-hrm` repository using git:
 
 ```console
 # Clone repository
@@ -10,12 +16,7 @@ git clone https://github.com/henrivalimaa/solteq-hrm.git
 
 # Navigate to project folder
 cd solteq-hrm
-```
-#### Pre-install:
-1. You must have `Node.js (nodejs)` and its `package manager (npm)` installed. You can get them from here [here](https://nodejs.org/en/).
-2. You must have `python`, `pip` and `virtualenv` installed. 
-
-#### Installation
+``` 
 
 Application can be build and run with:
 1. Docker setup
@@ -43,26 +44,26 @@ You need to create a user for the application.
 
 ## Development server setup
 
-#### Client (Angular)
-
-**You need to have installed latest nodejs and npm**
+### Client (Angular)
  
- Build and run:
- 1. Navigate to `/client` folder
- 2. Run commands:
+Build and run application:
+1. Navigate to `/client` folder
+2. Run commands:
 
- ```console
- npm install
- ng serve --host 0.0.0.0
- ```
-After npm has installed all modules and application is build to the web server open your browser and navigate to [localhost:4200/login](localhost:4200/login).
+```console
+# Install dependencies
+npm install
 
-#### API (Django REST Framework)
+# Build and run web server
+ng serve
+```
+3. Open browser and navigate to [localhost:4200/login](localhost:4200/login)
+
+### API (Django REST Framework)
 
 **You need to have installed python, pip and virtualenv**
 
-Setup, build, and run:
-To run API 
+Setup, build, and run API:
 1. Navigate to `/server` folder
 2. Run commands: 
 
@@ -83,5 +84,4 @@ python manage.py createsuperuser
 # Run
 python manage.py runserver
 ```
-
-API is browsable at URL: [localhost:8100](localhost:8100).
+4. API is browsable at URL: [localhost:8100](localhost:8100).
