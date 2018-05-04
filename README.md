@@ -1,5 +1,7 @@
 # Solteq HRM
 
+This is an awesome description about this project **TODO**
+
 ## Getting started
 
 ### Prerequisites
@@ -31,7 +33,10 @@ To build this application with docker you need to install
 After you have installed docker and docker-compose run: 
 
 ```console
+# Build client and api images
 docker-compose build
+
+# Start services
 docker-compose up
 ```
 
@@ -40,13 +45,13 @@ You need to create a user for the application.
 2. Navigate to the folder where you cloned this repository
 3. Run `docker run server python server/manage.py createsuperuser`
 4. Fill user credentials 
-4. Open your browser and navigate to [localhost:4200/login](localhost:4200/login).
+4. Open browser and navigate to [localhost:4200/login](localhost:4200/login).
 
 ## Development server setup
 
 ### Client (Angular)
  
-Build and run application:
+Build and run `client`:
 1. Navigate to `/client` folder
 2. Run commands:
 
@@ -61,9 +66,7 @@ ng serve
 
 ### API (Django REST Framework)
 
-**You need to have installed python, pip and virtualenv**
-
-Setup, build, and run API:
+Setup, build, and run `api`:
 1. Navigate to `/server` folder
 2. Run commands: 
 
@@ -84,4 +87,4 @@ python manage.py createsuperuser
 # Run
 python manage.py runserver
 ```
-4. API is browsable at URL: [localhost:8100](localhost:8100).
+4. API is browsable at URL: [localhost:8000](localhost:8000).
