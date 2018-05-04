@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-Clone repository this repository and navigate to the folder with commands:
+Clone repository:
 
 ```console
 # Clone repository
@@ -11,18 +11,17 @@ git clone https://github.com/henrivalimaa/solteq-hrm.git
 # Navigate to project folder
 cd solteq-hrm
 ```
-#### Dependecies:
-1. **You must have `Node.js (nodejs)` and its `package manager (npm)` installed. You can get them from here [here](https://nodejs.org/en/).**
-2. **You must have installed `python`, `pip` and `virtualenv`.** 
+#### Pre-install:
+1. You must have `Node.js (nodejs)` and its `package manager (npm)` installed. You can get them from here [here](https://nodejs.org/en/).
+2. You must have `python`, `pip` and `virtualenv` installed. 
 
-
-## Installation
+#### Installation
 
 Application can be build and run with:
-1. Docker (build docker image)
-2. Development server setup
+1. Docker setup
+2. Development server setup (developers)
 
-## Docker
+## Docker setup
 
 To build this application with docker you need to install
 1. Docker [https://www.docker.com/community-edition#/download]
@@ -40,7 +39,7 @@ You need to create a user for the application.
 2. Navigate to the folder where you cloned this repository
 3. Run `docker run server python server/manage.py createsuperuser`
 4. Fill user credentials 
-4. Open your browser and navigate to [localhost:4200].
+4. Open your browser and navigate to [localhost:4200/login](localhost:4200/login).
 
 ## Development server setup
 
@@ -56,7 +55,7 @@ You need to create a user for the application.
  npm install
  ng serve --host 0.0.0.0
  ```
-After npm has installed all modules and application is build to the web server open your browser and navigate to [localhost:4200].
+After npm has installed all modules and application is build to the web server open your browser and navigate to [localhost:4200/login](localhost:4200/login).
 
 #### API (Django REST Framework)
 
@@ -84,4 +83,5 @@ python manage.py createsuperuser
 # Run
 python manage.py runserver
 ```
-After api is up open your browser and navigate to [localhost:8100].
+
+API is browsable at URL: [localhost:8100](localhost:8100).
