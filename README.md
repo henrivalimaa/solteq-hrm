@@ -1,27 +1,35 @@
 # Solteq HRM
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
+## Installation
 
-## Development server
+To run this application with:
+1. Docker (build docker image)
+2. Development servers (Angular CLI, Python)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `git clone https://github.com/henrivalimaa/solteq-hrm.git` in your terminal
+Then run `cd solteq-hrm` in your terminal
 
-## Code scaffolding
+### Docker
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+To build this application with docker you need to install
+1. Docker [https://docs.docker.com/compose/install/]
+2. Docker Compose [https://docs.docker.com/compose/install/]
 
-## Build
+After you have installed docker and docker-compose
+Run `docker-compose build`
+After build is ready run `docker-compose up`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Now you should see that server(api) and client is up and ready to be tested
 
-## Running unit tests
+You still need to create a superuser for the application.
+1. Open new terminal
+2. Navigate to the folder where you cloned this repository
+3. Run `docker run server python server/manage.py createsuperuser` 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+After command terminal asks to fill credentials for admin user.
 
-## Running end-to-end tests
+After you have successfully created application admin user go to [localhost:4200/login]
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+You should see application login page where you can login with created admin user credentials.
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### Development setup
