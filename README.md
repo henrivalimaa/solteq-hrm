@@ -26,7 +26,7 @@ Application can be build and run with:
 
 ## Docker setup
 
-To build this application with docker you need to install
+To build this application with docker you need to install:
 1. [Docker](https://www.docker.com/community-edition#/download)
 2. [Docker Compose](https://docs.docker.com/compose/install/)
 
@@ -40,7 +40,7 @@ docker-compose build
 docker-compose up
 ```
 
-You need to create a user for the application.
+You need to create a user for the application:
 1. Open new terminal window
 2. Navigate to the folder where you cloned this repository
 3. Run `docker-compose run server python server/manage.py createsuperuser`
@@ -86,7 +86,7 @@ python manage.py migrate
 # Create user which can authenticate to the application
 python manage.py createsuperuser
 
-# Run
+# Run server
 python manage.py runserver
 ```
-4. API is browsable at [https://localhost:8000](http://localhost:8000).
+3. API is browsable at [https://localhost:8000](http://localhost:8000).

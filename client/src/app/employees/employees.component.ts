@@ -16,6 +16,7 @@ import { fadeInOutAnimation, snackBarAnimation } from "../animations/animations"
     snackBarAnimation
   ]
 })
+
 export class EmployeesComponent implements OnInit {
   private employees: Employee[] = [];
   private employeeToBeRemoved: Employee;
@@ -27,6 +28,10 @@ export class EmployeesComponent implements OnInit {
   private showMessage: boolean;
   private showConfirmButtons: boolean;
 
+  /**
+  * Enables filtering for table data (employees)
+  * @param filerValue requested filter value
+  */
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim();
     filterValue = filterValue.toLowerCase();
@@ -41,6 +46,9 @@ export class EmployeesComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
+  /**
+  * Fetches employees on component initialization (EmployeeService)
+  */
   ngOnInit() {
     this.employeeService.getEmployees().subscribe(
         response => {
@@ -58,6 +66,11 @@ export class EmployeesComponent implements OnInit {
     );
   }
 
+  /**
+  * Calculates average salary of all employees
+  * @param employees Employees
+  * @returns returns average salary
+  */
   calculateAverageSalary(employees: Employee[]): any {
     let totalSalaries = 0;
     for (let employee of employees) {
@@ -67,6 +80,11 @@ export class EmployeesComponent implements OnInit {
     return (totalSalaries / employees.length).toFixed(2);
   }
 
+  /**
+  * Shows employee's all details (EmployeeDetailComponent)
+  * @param empoyee Employee
+  * @param action
+  */
   previewDetails(employee: Employee, action: string): void {
     let data = { action: action, employee: employee };
 
@@ -82,6 +100,9 @@ export class EmployeesComponent implements OnInit {
     });
   }
 
+  /**
+  * Creates new employee (EmployeeService)
+  */
   createEmployee(): void {
     this.employeeService.createEmployee(this.employee).subscribe(
       response => {
@@ -100,6 +121,9 @@ export class EmployeesComponent implements OnInit {
     )
   }
 
+  /**
+  * Removes selected employee (EmployeeService)
+  */
   removeEmployee(): void {
     this.employeeService.removeEmployee(this.employeeToBeRemoved). subscribe(
       response => {
@@ -124,12 +148,21 @@ export class EmployeesComponent implements OnInit {
     );
   }
 
+  /**
+  * Displays confirmation modal for employee removal
+  * @param employee Employee to be removed
+  */
   confirmRemoval(employee: Employee): void {
     this.employeeToBeRemoved = employee;
     let confirmText = 'Removing ' + employee.name;
     this.displayMessage(confirmText, true);
   }
 
+  /**
+  * Displays custom snackbar with message
+  * @param message Text to be shown in the snackbar
+  * @param confirm Boolean value if confirm buttons needs to be shown
+  */
   displayMessage(message: string, confirm: boolean): void {
     if (confirm === true) {
       this.message = message;
@@ -145,29 +178,21 @@ export class EmployeesComponent implements OnInit {
     }
   }
 
+  /**
+  * Exports employee data as .csv file (THIS WILL BE CHANGED)
+  */
   exportEmployeeData(): void {
     let headers = { id: 'id', name: 'name', salary: 'salary', position: 'position', email: 'email', phone: 'phone', street: 'street', code: 'code', city: 'city', country: 'country' }; 
     this.exportCSVFile(headers, Object.assign([], this.dataSource.filteredData), 'export');
   }
 
-  convertToCSV(objArray): string {
-    let array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
-    let str = '';
-
-    for (let i = 0; i < array.length; i++) {
-      let line = '';
-      for (let index in array[i]) {
-        if (line != '') line += ','
-
-        line += array[i][index];
-      }
-
-      str += line + '\r\n';
-    }
-
-    return str;
-  }
-
+  /**
+  * Converts employee data to CSV format 
+  * and creates exportable .csv file. (THIS WILL BE CHANGED)
+  * @param headers Header for the file
+  * @param items Data to be converted
+  * @param fileTitle Title of the exportable file
+  */
   exportCSVFile(headers, items, fileTitle): void {
     if (headers) {
         items.unshift(headers);
@@ -196,8 +221,33 @@ export class EmployeesComponent implements OnInit {
     }
   }
 
+  /**
+  * Converts array data to CSV format (THIS WILL BE CHANGED)
+  * @param objArray Data
+  * @returns returns a string value of the formatted data
+  */
+  convertToCSV(objArray): string {
+    let array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+    let str = '';
+
+    for (let i = 0; i < array.length; i++) {
+      let line = '';
+      for (let index in array[i]) {
+        if (line != '') line += ','
+
+        line += array[i][index];
+      }
+
+      str += line + '\r\n';
+    }
+
+    return str;
+  }
 }
 
+/**
+ * Employee class
+ */
 export class Employee {
 	id: string;
   name: string;

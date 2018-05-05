@@ -13,37 +13,47 @@ import { fadeInOutAnimation, snackBarAnimation } from "../animations/animations"
     snackBarAnimation
   ]
 })
+
 export class LoginComponent implements OnInit {
-    private user: any = {};
-    private loading: boolean = false;
-    private loginError: boolean;
+  private user: any = {};
+  private loading: boolean = false;
+  private loginError: boolean;
 
-    constructor(
-        private router: Router,
-        private authService: AuthService) { }
+  constructor(
+    private router: Router,
+    private authService: AuthService) { }
 
-    ngOnInit() {
-        this.authService.logout();
-    }
+  /**
+  * Logout (AuthService)
+  */
+  ngOnInit() {
+    this.authService.logout();
+  }
 
-    login() {
-      this.loading = true;
-      this.authService.login(this.user.username, this.user.password)
-        .subscribe(result => {
-          if (result.token) {
-            this.router.navigate(['employees']);
-          } else {
-            this.showError();
-            this.loading = false;
-          }
-        });
-    }
+  /**
+  * Login (AuthService)
+  */
+  login() {
+    this.loading = true;
+    this.authService.login(this.user.username, this.user.password)
+      .subscribe(result => {
+        if (result.token) {
+          this.router.navigate(['employees']);
+        } else {
+          this.showError();
+          this.loading = false;
+        }
+      });
+  }
 
-    showError() {
-      this.loginError = true;
+  /**
+  * Shows error dialog if authentication failed
+  */
+  showError() {
+    this.loginError = true;
 
-      setTimeout(() => {
-        this.loginError = false;
-      }, 7000);
-    }
+    setTimeout(() => {
+      this.loginError = false;
+    }, 7000);
+  }
 }

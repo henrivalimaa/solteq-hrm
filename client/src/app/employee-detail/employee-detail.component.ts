@@ -13,6 +13,7 @@ import { fadeInOutAnimation, snackBarAnimation } from "../animations/animations"
     snackBarAnimation
   ]
 })
+
 export class EmployeeDetailComponent implements OnInit {
   private editMode: boolean = false;
   private employeeEdited: boolean = false;
@@ -34,15 +35,24 @@ export class EmployeeDetailComponent implements OnInit {
     this.clone = Object.assign({}, this.data.employee);
   }
 
+  /**
+  * Closes dialog and returns dialogRef to parent component
+  */
   closeDialog(): void {
     if (this.employeeEdited == true) this.dialogRef.close('edited');
     else this.dialogRef.close();
   }
 
+  /**
+  * Sets dialog into edit mode
+  */
   editEmployee() {
   	this.editMode = true;
   }
 
+  /**
+  * Saves employee detail changes (EmployeeService)
+  */
   saveEmployee() {
   	this.editMode = false;
     this.employeeEdited = true;
@@ -53,6 +63,9 @@ export class EmployeeDetailComponent implements OnInit {
     );
   }
 
+  /**
+  * Discards all changes made to employee (EmployeeService)
+  */
   discardChanges() {
     this.employeeEdited = false;
     this.employeeService.editEmployee(this.clone).subscribe(
@@ -63,6 +76,9 @@ export class EmployeeDetailComponent implements OnInit {
     );
   }
 
+  /**
+  * Displays snackbar with a message
+  */
   displayMessage(message: string): void {
     this.showMessage = true;
     this.message = message;

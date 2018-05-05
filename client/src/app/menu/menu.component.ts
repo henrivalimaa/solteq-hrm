@@ -14,9 +14,11 @@ export class MenuComponent implements OnInit {
   	private authService: AuthService,
   	private router: Router) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
+  /**
+  * Logout (AuthService)
+  */
   logout() {
   	this.authService.logout();
   	this.router.navigate(['/login']);

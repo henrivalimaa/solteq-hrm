@@ -10,8 +10,8 @@
 		</div>
 		<div *ngIf="editMode">
 			<mat-form-field>
-		    <input matInput name="name" [(ngModel)]="data.employee.name" autocomplete="off">
-		  </mat-form-field>
+				<input matInput name="name" [(ngModel)]="data.employee.name" autocomplete="off">
+			</mat-form-field>
 		</div>
 	</div>
 	<div class="dialog-row">
@@ -21,8 +21,8 @@
 		</div>
 		<div *ngIf="editMode">
 			<mat-form-field>
-		    <input matInput name="position" [(ngModel)]="data.employee.position" autocomplete="off">
-		  </mat-form-field>
+				<input matInput name="position" [(ngModel)]="data.employee.position" autocomplete="off">
+			</mat-form-field>
 		</div>
 	</div>
 	<div class="dialog-row">
@@ -32,8 +32,8 @@
 		</div>
 		<div *ngIf="editMode">
 			<mat-form-field>
-		    <input matInput name="salary" type="number" [(ngModel)]="data.employee.salary" autocomplete="off">
-		  </mat-form-field>
+				<input matInput name="salary" type="number" [(ngModel)]="data.employee.salary" autocomplete="off">
+			</mat-form-field>
 		</div>
 	</div>
 
@@ -46,8 +46,8 @@
 		</div>
 		<div *ngIf="editMode">
 			<mat-form-field>
-		    <input matInput name="email" type="email" [(ngModel)]="data.employee.email" autocomplete="off">
-		  </mat-form-field>
+				<input matInput name="email" type="email" [(ngModel)]="data.employee.email" autocomplete="off">
+			</mat-form-field>
 		</div>
 	</div>
 	<div class="dialog-row">
@@ -57,8 +57,8 @@
 		</div>
 		<div *ngIf="editMode">
 			<mat-form-field>
-		    <input matInput name="salary" [(ngModel)]="data.employee.phone" autocomplete="off">
-		  </mat-form-field>
+				<input matInput name="salary" [(ngModel)]="data.employee.phone" autocomplete="off">
+			</mat-form-field>
 		</div>
 	</div>
 
@@ -71,8 +71,8 @@
 		</div>
 		<div *ngIf="editMode">
 			<mat-form-field>
-		    <input matInput name="street" [(ngModel)]="data.employee.street" autocomplete="off">
-		  </mat-form-field>
+				<input matInput name="street" [(ngModel)]="data.employee.street" autocomplete="off">
+			</mat-form-field>
 		</div>
 	</div>
 	<div class="dialog-row">
@@ -82,8 +82,8 @@
 		</div>
 		<div *ngIf="editMode">
 			<mat-form-field>
-		    <input matInput name="code" [(ngModel)]="data.employee.code" autocomplete="off">
-		  </mat-form-field>
+				<input matInput name="code" [(ngModel)]="data.employee.code" autocomplete="off">
+			</mat-form-field>
 		</div>
 	</div>
 	<div class="dialog-row">
@@ -93,8 +93,8 @@
 		</div>
 		<div *ngIf="editMode">
 			<mat-form-field>
-		    <input matInput name="city" [(ngModel)]="data.employee.city" autocomplete="off">
-		  </mat-form-field>
+				<input matInput name="city" [(ngModel)]="data.employee.city" autocomplete="off">
+			</mat-form-field>
 		</div>
 	</div>
 	<div class="dialog-row">
@@ -104,21 +104,21 @@
 		</div>
 		<div *ngIf="editMode">
 			<mat-form-field>
-		    <input matInput name="country" [(ngModel)]="data.employee.country" autocomplete="off">
-		  </mat-form-field>
+				<input matInput name="country" [(ngModel)]="data.employee.country" autocomplete="off">
+			</mat-form-field>
 		</div>
 	</div>
 </div>
 <div mat-dialog-actions>
 	<button mat-button *ngIf="!editMode" (click)="editEmployee()" cdkFocusInitial>Edit</button>
 	<button mat-button *ngIf="editMode" (click)="saveEmployee()" cdkFocusInitial>Save</button>
-  <button mat-button (click)="closeDialog()" [mat-dialog-close]="dialogResult" cdkFocusInitial>Close</button>
-  <button mat-button *ngIf="employeeEdited"(click)="discardChanges()">Discard changes</button>
+	<button mat-button (click)="closeDialog()" [mat-dialog-close]="dialogResult" cdkFocusInitial>Close</button>
+	<button mat-button *ngIf="employeeEdited"(click)="discardChanges()">Discard changes</button>
 </div>
 
 <div *ngIf="showMessage" class="snack-bar" [@snackBarSlide]>
-  <span>{{ message }}</span>
-  <div class="confirm-buttons">
-    <button mat-raised-button color="accent" (click)="showMessage = false">Close</button>
-  </div>
+	<span>{{ message }}</span>
+	<div class="confirm-buttons">
+		<button mat-raised-button color="accent" (click)="showMessage = false">Close</button>
+	</div>
 </div>

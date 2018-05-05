@@ -18,7 +18,7 @@ python manage.py migrate
 # Create user which can authenticate to the application
 python manage.py createsuperuser
 
-# Run
+# Run server
 python manage.py runserver
 ```
-4. API is browsable at URL: [localhost:8000](localhost:8000).
+3. API is browsable at URL: [localhost:8000](localhost:8000).
